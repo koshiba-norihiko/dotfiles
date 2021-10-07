@@ -26,9 +26,11 @@ alias relogin='exec $SHELL -l'
 
 # [【zsh】絶対やるべき！ターミナルでgitのブランチ名を表示&補完【git-prompt / git-completion】 - Qiita](https://qiita.com/mikan3rd/items/d41a8ca26523f950ea9d)
 # git-promptの読み込み
-source ~/.zsh/git-prompt.sh
+. ~/.zsh/git-prompt.sh
 # git-completionの読み込み
-fpath=(~/.zsh $fpath)
+## 404!? https://github.com/koalaman/shellcheck/wiki/SC3030
+# shellcheck disable=SC3030
+fpath=(~/.zsh "$fpath")
 zstyle ':completion:*:*:git:*' script ~/.zsh/git-completion.bash
 autoload -Uz compinit && compinit
 # プロンプトのオプション表示設定
