@@ -29,8 +29,8 @@ alias relogin='exec $SHELL -l'
 . ~/.zsh/git-prompt.sh
 # git-completionの読み込み
 ## 404!? https://github.com/koalaman/shellcheck/wiki/SC3030
-# shellcheck disable=SC3030
-fpath=(~/.zsh "$fpath")
+# shellcheck disable=SC3030,SC2206
+fpath=(~/.zsh ${fpath})
 zstyle ':completion:*:*:git:*' script ~/.zsh/git-completion.bash
 autoload -Uz compinit && compinit
 # プロンプトのオプション表示設定
