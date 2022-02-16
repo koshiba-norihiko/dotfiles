@@ -42,6 +42,15 @@ GIT_PS1_SHOWUPSTREAM=auto
 setopt PROMPT_SUBST ; PS1='%F{green}%n@%m%f: %F{cyan}%~%f %F{red}$(__git_ps1 "(%s)")%f
 \$ '
 
+## 20211007
+
+export PAGER=less
+
+## 20220111
+
+export PATH="$PATH:$HOME/.nodebrew/node/v16.13.2/bin/"
+eval "$(anyenv init -)"
+
 # 20211006
 # [goenv/INSTALL.md at master · syndbg/goenv](https://github.com/syndbg/goenv/blob/master/INSTALL.md)
 export GOENV_ROOT="$HOME/.goenv"
@@ -50,6 +59,7 @@ eval "$(goenv init -)"
 export PATH="$GOROOT/bin:$PATH"
 export PATH="$PATH:$GOPATH/bin"
 
-## 20211007
-
-export PAGER=less
+# set-upstream-to
+function sut {
+    git branch --set-upstream-to=origin/$1 $1
+}
